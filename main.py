@@ -24,6 +24,7 @@ def main():
           return
      
      # setting a background
+     player.update(dt)
      screen.fill((0,0,0))
      player.draw(screen)
      # updating the display

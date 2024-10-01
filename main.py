@@ -1,12 +1,16 @@
 # this allows us to use code from the open-source pygame library throughout this file
 import pygame
 from constants import *
+from player import Player
 
 def main():
   # initialising the pygame
   pygame.init()
   # creating display
   screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+  
+  # creating the player object:
+  player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
   
   # creating a clock object
   clock = pygame.time.Clock()
@@ -21,12 +25,14 @@ def main():
      
      # setting a background
      screen.fill((0,0,0))
+     player.draw(screen)
      # updating the display
      pygame.display.flip()
 
      # pausing the game loop until 1/60th of a second has passed
      # the .tick() method also returns the amount of time that has passed since the last time it was called: the delta time (dt variable)
      dt = clock.tick(60) / 1000
+  
 
 
 if __name__ == "__main__":

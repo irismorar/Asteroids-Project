@@ -3,6 +3,7 @@ import pygame
 from constants import *
 from player import Player
 from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
   #2.
@@ -19,9 +20,14 @@ def main():
   asteroids = pygame.sprite.Group()
   #6.
   Player.containers = (updatable, drawable)
+  #6.1
   Asteroid.containers = (asteroids, updatable, drawable)
+  #6.2
+  AsteroidField.containers = updatable
   #7.
   player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+  #7.1
+  asteroid_field = AsteroidField()
 
   #8.
   while True:
@@ -58,7 +64,11 @@ if __name__ == "__main__":
 #4. creating a clock object
 #5. creating two groups, in the end create one more group called asteroids
 #6. adding the Player to first two groups and adding Asteroid to all groups.
+#6.1 this ensures that every instance of the Asteroid class is automatically added to these groups upon creation
+#6.2 set the static containers field of the AsteroidField class to only the updatable group (it's not drawable, and it's not an 
+     # asteroid itself)
 #7. creating the player object
+#7.1 create a new AsteroidField object in the initialization code
 #8. creating a running loop
 #9. creating a loop to check events that are occurring and make the X button of the frame responsive
 #10. setting a background

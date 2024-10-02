@@ -2,6 +2,7 @@
 import pygame
 from constants import *
 from player import Player
+from asteroid import Asteroid
 
 def main():
   #2.
@@ -15,8 +16,10 @@ def main():
   #5.
   updatable = pygame.sprite.Group()
   drawable = pygame.sprite.Group()
+  asteroids = pygame.sprite.Group()
   #6.
   Player.containers = (updatable, drawable)
+  Asteroid.containers = (asteroids, updatable, drawable)
   #7.
   player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
@@ -53,8 +56,8 @@ if __name__ == "__main__":
 #2. initialising the pygame
 #3. creating display
 #4. creating a clock object
-#5. creating two groups
-#6. adding the player to both groups
+#5. creating two groups, in the end create one more group called asteroids
+#6. adding the Player to first two groups and adding Asteroid to all groups.
 #7. creating the player object
 #8. creating a running loop
 #9. creating a loop to check events that are occurring and make the X button of the frame responsive

@@ -58,7 +58,7 @@ def main():
       for shot in shots:
         if shot.collides(asteroid):
           shot.kill()
-          asteroid.kill()
+          asteroid.split()
     
     #13.
     pygame.display.flip()
@@ -90,7 +90,9 @@ if __name__ == "__main__":
 #10. setting a background
 #11. iterate over all "updatables" and .update() them, then iterate over all "drawables" and .draw() them, then iterate over asteroids and 
      # detect collisions using .collides()
-#12. If a bullet and an asteroid collide, call the .kill() method on both objects to remove them from the game.
+#12. If a bullet and an asteroid collide, call the .kill() method on shot object to remove it from the game and call the 
+     # new-born split() method on asteroid to: split a large asteroid in 2 medium asteroids, split a medium asteroid in 
+     # 2 small asteroids, .kill() small asteroids.
      # The kill() method is a feature built-in to pygame; it will remove the object from all of its groups, 
      # so our game will stop drawing and updating it automatically.
 #13. updating the display

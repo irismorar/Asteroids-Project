@@ -5,6 +5,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 
 def main():
   #2.
@@ -26,6 +27,8 @@ def main():
   Asteroid.containers = (asteroids, updatable, drawable)
   #6.2
   AsteroidField.containers = updatable
+  #6.3
+  Shot.containers = (shots, updatable, drawable)
   #7.
   player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
   #7.1
@@ -44,8 +47,8 @@ def main():
     #11.
     for obj in updatable:
       obj.update(dt)
-    for obj in asteroids:
-      if obj.collides(player):
+    for asteroid in asteroids:
+      if asteroid.collides(player):
         sys.exit("Game over!")
     for obj in drawable:
       obj.draw(screen)
@@ -67,7 +70,7 @@ if __name__ == "__main__":
 #2. initialising the pygame
 #3. creating display
 #4. creating a clock object
-#5. creating two groups,then create one more group called asteroids and in the end create the shots group
+#5. creating two groups (updatable and drawable),then create one more group called asteroids and in the end create the shots group
 #6. adding the Player to first two groups and adding Asteroid to all groups.
 #6.1 this ensures that every instance of the Asteroid class is automatically added to these groups upon creation
 #6.2 set the static containers field of the AsteroidField class to only the updatable group (it's not drawable, and it's not an 

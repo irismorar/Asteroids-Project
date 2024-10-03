@@ -19,6 +19,7 @@ def main():
   updatable = pygame.sprite.Group()
   drawable = pygame.sprite.Group()
   asteroids = pygame.sprite.Group()
+  shots = pygame.sprite.Group()
   #6.
   Player.containers = (updatable, drawable)
   #6.1
@@ -66,7 +67,7 @@ if __name__ == "__main__":
 #2. initialising the pygame
 #3. creating display
 #4. creating a clock object
-#5. creating two groups, in the end create one more group called asteroids
+#5. creating two groups,then create one more group called asteroids and in the end create the shots group
 #6. adding the Player to first two groups and adding Asteroid to all groups.
 #6.1 this ensures that every instance of the Asteroid class is automatically added to these groups upon creation
 #6.2 set the static containers field of the AsteroidField class to only the updatable group (it's not drawable, and it's not an 

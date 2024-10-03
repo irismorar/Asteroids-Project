@@ -1,5 +1,6 @@
 #1.
 import pygame
+import sys
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -42,6 +43,9 @@ def main():
     #11.
     for obj in updatable:
       obj.update(dt)
+    for obj in asteroids:
+      if obj.collides(player):
+        sys.exit("Game over!")
     for obj in drawable:
       obj.draw(screen)
     
@@ -72,7 +76,8 @@ if __name__ == "__main__":
 #8. creating a running loop
 #9. creating a loop to check events that are occurring and make the X button of the frame responsive
 #10. setting a background
-#11. iterate over all "updatables" and .update() them, then iterate over all "drawables" and .draw() them
+#11. iterate over all "updatables" and .update() them, then iterate over all "drawables" and .draw() them, then iterate over asteroids and 
+     # detect collisions using .collides()
 #12. updating the display
 #13. pausing the game loop until 1/60th of a second has passed
      # the .tick() method also returns the amount of time that has passed since the last time it was called: the delta time (dt variable)
